@@ -24,8 +24,9 @@ fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
                         case 3:
                             return `Q${number + 1}: green square - ${choices[i].answer}`;
                             break
+                        default:
+                            return "error"
                     }
-                    return "error"
                 }
             }
         })
