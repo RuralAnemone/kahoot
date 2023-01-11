@@ -25,5 +25,5 @@ fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
     .then(answers => {
         var win = open();
         win.document.head.innerHTML = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">`;
-        win.document.body.innerText = answers;
+        win.document.body.innerHTML = answers.replaceAll("\n", "<hr>");
     })
