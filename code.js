@@ -1,6 +1,6 @@
 // I have no idea who made the original one but kudos to you and I'll fork and star your repo if you can prove you're the original creator of this code
 // (I've just touched it up a bit)
-if (location.hostname == "create.kahoot.it") var id = prompt("paste or type in the Kahoot ID");
+if (location.hostname == "create.kahoot.it") var id = prompt("paste or type in the Kahoot ID\n\nyou should be able to see the id on your teacher's screen, it will be in the following format:\nhttps://play.kahoot.it/v2/?quizId=THE_KAHOOT_ID").match(/[0-9a-f]*-[0-9a-f-]*/i);
 else if (confirm("you aren't on create.kahoot.it\npress enter to redirect, and try again from there!")) location = "https://create.kahoot.it/rest/kahoots/KAHOOT_ID/card/?includeKahoot=true";
 
 fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
