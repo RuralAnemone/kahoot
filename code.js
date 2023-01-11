@@ -10,16 +10,17 @@ fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
             if ("choices" in q) {
                 for (let i = 0, n = q.choices.length; i < n; i++) {
                     const choice = q.choices[i];
-                    if (choice.correct) return `Q${number + 1}: <img src="https://raw.githubusercontent.com/RuralAnemone/kahoot/main/img/${i}.png" title="${["red triangle", "blue diamond", "yellow circle", "green square"][i]}"> - ${choice.answer}`;
+                    if (choice.correct) return `<tr title="${["red triangle", "blue diamond", "yellow circle", "green square"][i]}"><td>Q${number + 1}</td><td><img style="width:2ex;height:2ex;border-radius:6.9%;" src="https://raw.githubusercontent.com/RuralAnemone/kahoot/main/img/${i}.png"></td><td>${choice.answer}</td></tr>`;
                 }
-                return `Q${number + 1}: couldn't parse question. it's probably a puzzle. good luck lol`
+                return `<tr><td>Q${number + 1}</td><td>X</td><td>couldn't parse question. it's probably a puzzle. good luck lol</td></tr>`;
             } else {
-                return `Q${number + 1} has no correct answer, have fun! :)`;
+                return `<tr><td>Q${number + 1}</td><td>X</td><td>no correct answer, have fun! :)</td></tr>`;
             }
-        }).join("\n")
+        }).join("")
     )
     .then(answers => {
+        console.log(answers);
         var win = open();
-        win.document.head.innerHTML = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">`;
-        win.document.body.innerHTML = answers.replaceAll("\n", "<hr>");
+        win.document.head.innerHTML = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css"><style>*{font-family:monospace,monospace !important;}</style>`;
+        win.document.body.innerHTML = `<table><thead><th>Q#</th><th>symbol</th><th>answer</th></thead><tbody>${answers}</tbody></table>`;
     })
