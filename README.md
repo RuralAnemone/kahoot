@@ -4,5 +4,5 @@ me when kahoot
 make this code a bookmarklet or something:
 
 ```js
-javascript:fetch('https://cdn.jsdelivr.net/gh/RuralAnemone/kahoot@latest/code.js').then(res=>res.text().then(text=>eval(text))).catch(e=>alert(e))
+javascript:fetch('https://raw.githubusercontent.com/RuralAnemone/kahoot/main/code.js').then(res=>res.text().then(text=>eval(text))).catch(e=>alert(e))
 ```
