@@ -7,17 +7,13 @@ fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
     .then(res => res.json())
     .then(json => json.kahoot.questions
         .map((q, number) => {
-            console.log(number, "choices" in q, q);
             if ("choices" in q) {
-                console.log("...");
-                q.choices.forEach((choice, i) => {
-                    if (choice.correct) {
-                        console.log("out: yes")
-                        return `Q${number + 1}: ${["red triangle", "blue diamond", "yellow circle", "green square"][i]} - ${choice.answer}`;
-                    }
-                })
+                for (let i = 0, n = q.choices.length; i < n; i++) {
+                    const choice = q.choices[i];
+                    if (choice.correct) return `Q${number + 1}: ${["red triangle", "blue diamond", "yellow circle", "green square"][i]} - ${choice.answer}`;
+                }
+                return `Q${number + 1}: couldn't parse question. it's probably a puzzle. good luck lol`
             } else {
-                console.log("out: none");
                 return `Q${number + 1} has no correct answer, have fun! :)`;
             }
         }).join("\n")
