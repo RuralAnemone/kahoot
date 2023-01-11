@@ -29,8 +29,8 @@ fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
                     }
                 }
             }
-        })
-        .join("\n"))
+        }).join("\n")
+    )
     .then(answers => {
         var win = open()
         win.document.head.innerHTML = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">`
