@@ -7,11 +7,18 @@ fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
     .then(res => res.json())
     .then(json => json.kahoot.questions
         .map((q, number) => {
-            const { choices } = q;
-            for (var i in choices) {
-                if (choices[i].correct) {
-                    return `Q${number + 1}: ${["red triangle", "blue diamond", "yellow circle", "green square"][i]} - ${choices[i].answer}`;
-                }
+            console.log(number, "choices" in q, q);
+            if ("choices" in q) {
+                console.log("...");
+                q.choices.forEach((choice, i) => {
+                    if (choice.correct) {
+                        console.log("out: yes")
+                        return `Q${number + 1}: ${["red triangle", "blue diamond", "yellow circle", "green square"][i]} - ${choice.answer}`;
+                    }
+                })
+            } else {
+                console.log("out: none");
+                return `Q${number + 1} has no correct answer, have fun! :)`;
             }
         }).join("\n")
     )
