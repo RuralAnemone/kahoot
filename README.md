@@ -12,6 +12,6 @@ javascript:fetch('https://raw.githubusercontent.com/RuralAnemone/kahoot/main/cod
 <br>
 TODO:
 
-[ ] get ID from pin (??? is this even possible?)
-[ ] get people to use this
+[ ] - get ID from pin (??? is this even possible?)
+[ ] - get people to use this
     ooh I could do data logging that might be fun
