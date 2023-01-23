@@ -13,11 +13,11 @@ fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
             if ("choices" in q) {
                 for (let i = 0, n = q.choices.length; i < n; i++) {
                     const choice = q.choices[i];
-                    if (choice.correct) return `<tr title="${["red triangle", "blue diamond", "yellow circle", "green square"][i]}"><td>Q${number + 1}</td><td><details><summary>${(q.type === "quiz" || q.type === "survey" ? q.question : q.description).match(/[\w"']+(?: [\w"']+)?/)[0]}</summary><p>${q.type === "quiz" || q.type === "survey" ? q.question : q.description}</p></td><td><img style="width:2ex;height:2ex;border-radius:6.9%;" src="https://raw.githubusercontent.com/RuralAnemone/kahoot/main/img/${i}.png"></td><td>${choice.answer}</td></tr>`;
+                    if (choice.correct) return `<tr title="${["red triangle", "blue diamond", "yellow circle", "green square"][i]}"><td>Q${number + 1}</td><td><details><summary>${(q.type === "quiz" || q.type === "survey" ? q.question : q.description).match(/[\w"']+(?: [\w"']+)?/)[0]}...</summary><p>${q.type === "quiz" || q.type === "survey" ? q.question : q.description}</p></td><td><img style="width:2ex;height:2ex;border-radius:6.9%;" src="https://raw.githubusercontent.com/RuralAnemone/kahoot/main/img/${i}.png"></td><td>${choice.answer}</td></tr>`;
                 }
-                return `<tr><td>Q${number + 1}</td><td><details><summary>${(q.type === "quiz" || q.type === "survey" ? q.question : q.description).match(/[\w"']+(?: [\w"']+)?/)[0]}</summary><p>${q.type === "quiz" || q.type === "survey" ? q.question : q.description}</p></td><td>X</td><td>couldn't parse question. it's probably a puzzle. good luck lol</td></tr>`;
+                return `<tr><td>Q${number + 1}</td><td><details><summary>${(q.type === "quiz" || q.type === "survey" ? q.question : q.description).match(/[\w"']+(?: [\w"']+)?/)[0]}...</summary><p>${q.type === "quiz" || q.type === "survey" ? q.question : q.description}</p></td><td>X</td><td>couldn't parse question. it's probably a puzzle. good luck lol</td></tr>`;
             } else {
-                return `<tr><td>Q${number + 1}</td><td><details><summary>${(q.type === "quiz" || q.type === "survey" ? q.question : q.description).match(/[\w"']+(?: [\w"']+)?/)[0]}</summary><p>${q.type === "quiz" || q.type === "survey" ? q.question : q.description}</p></td><td>X</td><td>no correct answer, have fun! :)</td></tr>`;
+                return `<tr><td>Q${number + 1}</td><td><details><summary>${(q.type === "quiz" || q.type === "survey" ? q.question : q.description).match(/[\w"']+(?: [\w"']+)?/)[0]}...</summary><p>${q.type === "quiz" || q.type === "survey" ? q.question : q.description}</p></td><td>X</td><td>no correct answer, have fun! :)</td></tr>`;
             }
         }).join("")
     )
