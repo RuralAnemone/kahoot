@@ -3,7 +3,7 @@
 // if you'd like to see the original code, it's in ./default.js
 
 if (location.hostname == "create.kahoot.it") var id = prompt("paste or type in the Kahoot ID\n\nyou should be able to see the id on your teacher's screen, it will be in the following format:\nhttps://play.kahoot.it/v2/?quizId=THE_KAHOOT_ID").match(/[0-9a-f]*-[0-9a-f-]*/i);
-else if (confirm("you aren't on create.kahoot.it\npress enter to redirect, and try again from there!")) location = "https://create.kahoot.it/rest/kahoots/KAHOOT_ID/card/?includeKahoot=true";
+else confirm("you aren't on create.kahoot.it\npress enter to open it it a new tab, and try again from there!") ? open("https://create.kahoot.it/rest/kahoots/KAHOOT_ID/card/?includeKahoot=true") : alert("well okay but it won't work then.\n🤡.");
 
 fetch(`https://create.kahoot.it/rest/kahoots/${id}/card/?includeKahoot=true`)
     .then(res => res.json())
