@@ -11,10 +11,17 @@ javascript:fetch('https://raw.githubusercontent.com/RuralAnemone/kahoot/main/cod
 <br>
 <hr>
 <br>
+
+KNOWN ISSUES
+
+- breaks on 403 (private kahoot)
+- idk lol please bugtest it for me :))))))
+
+<br>
+<hr>
+<br>
 TODO:
 
-[ ] - get ID from pin (??? is this even possible?)
+- [ ] get ID from pin (??? is this even possible?)
 
-[ ] - get people to use this
-
-ooh I could do data logging that might be fun
+- [ ] get people to use this
