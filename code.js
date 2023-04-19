@@ -1,3 +1,9 @@
+confirm("this bookmarklet has moved. open new home page in new tab?") ? (()=>{
+    open("https://ruralanemone.github.io/bookmarklets");
+    return null;
+})() : alert("this code is probably outdated.\nexcersize caution, and expect things to be broken (:")
+
+
 // I have no idea who made the original one but kudos to you and I'll fork and star your repo if you can prove you're the original creator of this code
 // (I've just touched it up a bit)
 // if you'd like to see the original code, it's in ./default.js

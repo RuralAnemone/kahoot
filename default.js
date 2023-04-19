@@ -1,3 +1,8 @@
+confirm("this bookmarklet has moved. open new home page in new tab?") ? (()=>{
+    open("https://ruralanemone.github.io/bookmarklets");
+    return null;
+})() : alert("this code is probably outdated.\nexcersize caution, and expect things to be broken (:")
+
 fetch(`https://create.kahoot.it/rest/kahoots/${prompt("Paste the Kahoot ID")}/card/?includeKahoot=true`).then(res => res.json()).then(json => json.kahoot.questions.map((q, number) => {
     const { choices } = q;
     for (let i = 0; i < choices.length; i += 1) {
